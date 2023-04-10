@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace : package + classname -->
+<mapper namespace="mainMapper">
+    <select id="getUser">
+        SELECT * FROM user
+
+
+    </select>
+
+    <insert id="regiUsr">
+
+
+    </insert>
+
+    <update id="updateUser">
+
+
+    </update>
+
+    <delete id="deleteUser">
+
+    </delete>
+</mapper>
