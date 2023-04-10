@@ -18,7 +18,7 @@ public class MainController {
         System.out.println("getUser do");
         return mainService.getUser();
     }
-    @PostMapping("/regiUser")
+/*    @PostMapping("/regiUser")
     public int regiUser(){
         return 1;
     }
@@ -31,6 +31,6 @@ public class MainController {
     @DeleteMapping("delUser")
     public int deleteUser(){
         return 1;
-    }
+    }*/
 
 }
