@@ -13,5 +13,7 @@ public interface MainService {
 
     public void regiUser(MemberVO memberVO);
 
-    public void delUser(int id);
+    public void updateUser(MemberVO memberVO);
+
+    public void delUser(long id);
 }

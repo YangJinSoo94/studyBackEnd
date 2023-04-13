@@ -28,8 +28,14 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public void delUser(int id){
-        System.out.println("deleteUser");
+    public void updateUser(MemberVO memberVO){
+        System.out.println("updateUser");
+        mainDAO.updateUser(memberVO);
+    }
+
+    @Override
+    public void delUser(long id){
+        System.out.println("delUser");
         mainDAO.delUser(id);
     }
 }
