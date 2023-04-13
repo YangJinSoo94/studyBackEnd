@@ -20,11 +20,15 @@
     </insert>
 
     <update id="updateUser">
-
-
+        UPDATE user SET
+            name = #{name}
+            ,age = #{age}
+            ,phone = #{phone}
+            ,email = #{email}
+        WHERE id = #{id}
     </update>
 
-    <delete id="deleteUser">
-
+    <delete id="delUser">
+        DELETE FROM user where id = #{id}
     </delete>
 </mapper>
