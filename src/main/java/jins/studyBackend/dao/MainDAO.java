@@ -10,4 +10,6 @@ import java.util.List;
 @Mapper
 public interface MainDAO {
     public List<MemberVO> getUser();
+
+    public void regiUser(MemberVO memberVO);
 }

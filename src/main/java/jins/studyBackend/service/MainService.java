@@ -10,4 +10,6 @@ import java.util.List;
 public interface MainService {
 
     public List<MemberVO> getUser();
+
+    public void regiUser(MemberVO memberVO);
 }

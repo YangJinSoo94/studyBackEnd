@@ -18,7 +18,12 @@ public class MainServiceImpl implements MainService {
 
     @Override
     public List<MemberVO> getUser(){
-        System.out.println("test");
+        System.out.println("getUser");
         return mainDAO.getUser();
+    }
+    @Override
+    public void regiUser(MemberVO memberVO){
+        System.out.println("regiUser");
+        mainDAO.regiUser(memberVO);
     }
 }

@@ -7,9 +7,16 @@
         SELECT * FROM user
     </select>
 
-    <insert id="regiUsr">
-
-
+    <insert id="regiUser" parameterType="hashMap">
+        INSERT INTO user
+        VALUES (
+            #{id}
+            ,#{pw}
+            ,#{name}
+            ,#{age}
+            ,#{email}
+            ,#{phone}
+        )
     </insert>
 
     <update id="updateUser">
