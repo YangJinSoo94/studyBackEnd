@@ -33,10 +33,11 @@ public class MainController {
     public int updateUser(){
         return 1;
     }
-
-    @DeleteMapping("delUser")
-    public int deleteUser(){
-        return 1;
-    }*/
+*/
+    @DeleteMapping(path="/delUser/{id}")
+    public Object deleteUser(@PathVariable int id){
+        mainService.delUser(id);
+        return mainService.getUser();
+    }
 
 }

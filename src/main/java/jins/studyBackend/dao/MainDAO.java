@@ -12,4 +12,6 @@ public interface MainDAO {
     public List<MemberVO> getUser();
 
     public void regiUser(MemberVO memberVO);
+
+    public void delUser(int id);
 }

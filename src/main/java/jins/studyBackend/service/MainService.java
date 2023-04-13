@@ -12,4 +12,6 @@ public interface MainService {
     public List<MemberVO> getUser();
 
     public void regiUser(MemberVO memberVO);
+
+    public void delUser(int id);
 }

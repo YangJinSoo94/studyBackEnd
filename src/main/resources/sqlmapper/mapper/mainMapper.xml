@@ -24,7 +24,7 @@
 
     </update>
 
-    <delete id="deleteUser">
-
+    <delete id="delUser">
+        DELETE user WHERE id = #{id}
     </delete>
 </mapper>
