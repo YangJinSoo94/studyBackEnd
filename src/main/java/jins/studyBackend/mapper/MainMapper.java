@@ -1,14 +1,13 @@
-package jins.studyBackend.dao;
+package jins.studyBackend.mapper;
 
 import jins.studyBackend.vo.MemberVO;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 
-@Repository
 @Mapper
-public interface MainDAO {
+public interface MainMapper {
     public List<MemberVO> getUser();
 
     public void regiUser(MemberVO memberVO);
@@ -16,4 +15,9 @@ public interface MainDAO {
     public void updateUser(MemberVO memberVO);
 
     public void delUser(long id);
+
+    // 강의
+    HashMap getUserOne();
+
+    int updateUser2(MemberVO memberVO);
 }

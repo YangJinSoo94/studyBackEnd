@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- namespace : package + classname -->
-<mapper namespace="jins.studyBackend.dao.MainDAO">
+<!-- namespace : package + classname (Mapper.java)-->
+<mapper namespace="jins.studyBackend.mapper.MainMapper">
     <select id="getUser" resultType="hashMap">
         SELECT * FROM user
     </select>
@@ -19,7 +19,7 @@
         )
     </insert>
 
-    <update id="updateUser">
+    <update id="updateUser" parameterType="hashMap">
         UPDATE user SET
             name = #{name}
             ,age = #{age}
@@ -28,7 +28,20 @@
         WHERE id = #{id}
     </update>
 
-    <delete id="delUser">
+    <delete id="delUser" parameterType="string">
         DELETE FROM user where id = #{id}
     </delete>
+
+    <select id="getUserOne" resultType="hashMap">
+        SELECT * FROM user limit 1
+    </select>
+
+    <update id="putUser" parameterType="hashMap">
+        UPDATE user SET
+            name = #{name}
+                      ,age = #{age}
+                      ,phone = #{phone}
+                      ,email = #{email}
+        WHERE id = #{id}
+    </update>
 </mapper>

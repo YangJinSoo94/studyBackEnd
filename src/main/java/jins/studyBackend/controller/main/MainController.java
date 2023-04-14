@@ -7,10 +7,6 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 @RestController
 public class MainController {
 
@@ -31,10 +27,27 @@ public class MainController {
         return mainService.getUser();
     }
 
+    @PostMapping(path = "/regiUser2", consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE})
+    public Object regiUser2(@RequestBody MemberVO memberVO){
+
+        mainService.regiUser(memberVO);
+        return mainService.getUser();
+    }
+
     @PutMapping("updateUser")
     public Object updateUser(MemberVO memberVO){
         try{
             mainService.updateUser(memberVO);
+        }catch (Exception e){
+            e.printStackTrace();;
+        }
+        return mainService.getUser();
+    }
+
+    @PutMapping("/updateUser2/{userid}")
+    public Object updateUser2(@PathVariable long userid, @RequestBody MemberVO memberVO){
+        try{
+            mainService.updateUser2(userid, memberVO);
         }catch (Exception e){
             e.printStackTrace();;
         }

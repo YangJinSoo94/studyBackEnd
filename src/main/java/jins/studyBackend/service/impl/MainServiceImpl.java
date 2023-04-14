@@ -1,41 +1,49 @@
 package jins.studyBackend.service.impl;
 
-import ch.qos.logback.core.CoreConstants;
-import jins.studyBackend.dao.MainDAO;
+import jins.studyBackend.mapper.MainMapper;
 import jins.studyBackend.service.MainService;
 import jins.studyBackend.vo.MemberVO;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.sql.SQLOutput;
+import java.util.HashMap;
 import java.util.List;
 
+@AllArgsConstructor
 @Service
 public class MainServiceImpl implements MainService {
 
-    @Autowired
-    private MainDAO mainDAO;
+    private MainMapper mainMapper;
 
     @Override
     public List<MemberVO> getUser(){
         System.out.println("getUser");
-        return mainDAO.getUser();
+        return mainMapper.getUser();
     }
     @Override
     public void regiUser(MemberVO memberVO){
         System.out.println("regiUser");
-        mainDAO.regiUser(memberVO);
+        mainMapper.regiUser(memberVO);
     }
 
     @Override
     public void updateUser(MemberVO memberVO){
         System.out.println("updateUser");
-        mainDAO.updateUser(memberVO);
+        mainMapper.updateUser(memberVO);
     }
 
     @Override
     public void delUser(long id){
         System.out.println("delUser");
-        mainDAO.delUser(id);
+        mainMapper.delUser(id);
+    }
+
+    public HashMap getUserOne(){
+        return mainMapper.getUserOne();
+    }
+
+    public int updateUser2(long id, MemberVO memberVO){
+        memberVO.setId(id);
+        return mainMapper.updateUser2(memberVO);
     }
 }
