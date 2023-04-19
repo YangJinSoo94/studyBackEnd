@@ -44,30 +44,26 @@ public class MainController {
         return mainService.getUser();
     }
 
-    @PutMapping("/updateUser2/{userid}")
-    public Object updateUser2(@PathVariable long userid, @RequestBody MemberVO memberVO){
+    @PutMapping("/updateUser2/{id}")
+    public Object updateUser2(@PathVariable long id, @RequestBody MemberVO memberVO){
         try{
-            mainService.updateUser2(userid, memberVO);
+            mainService.updateUser2(id, memberVO);
         }catch (Exception e){
-            e.printStackTrace();;
+            e.printStackTrace();
         }
         return mainService.getUser();
     }
 
-    @DeleteMapping("/delUser")
-    public Object delUser(MemberVO memberVO){
-
-        mainService.delUser(memberVO.getId());
-        return mainService.getUser();
+    @GetMapping("/getUserOne/{id}")
+    public Object getUserOne(@PathVariable long id) {
+        System.out.println("getUserOne do");
+        return mainService.getUserOne(id);
     }
 
-    /**
-     * get방식?
-     *  @DeleteMapping("/delUser/{id}")
-     *  public Object delUser(@PathVariable int id){
-     *      mainService.delUser(id);
-     *      return mainService.getUser();
-     *  }
-     */
+    @DeleteMapping("/delUser/{id}")
+    public Object delUser(@PathVariable long id){
+        mainService.delUser(id);
+        return mainService.getUser();
+    }
 
 }

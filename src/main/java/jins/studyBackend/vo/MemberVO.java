@@ -2,12 +2,12 @@ package jins.studyBackend.vo;
 
 public class MemberVO {
 
-    private long id;
-    private String pw;
-    private String name;
-    private Integer age;
-    private String email;
-    private String phone;
+    public long id;
+    public String pw;
+    public String name;
+    public Integer age;
+    public String email;
+    public String phone;
     public long getId() {
         return id;
     }

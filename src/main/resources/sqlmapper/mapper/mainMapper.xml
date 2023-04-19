@@ -28,12 +28,21 @@
         WHERE id = #{id}
     </update>
 
-    <delete id="delUser" parameterType="string">
+    <update id="updateUser2" parameterType="hashMap">
+        UPDATE user SET
+            name = #{name}
+                      ,age = #{age}
+                      ,phone = #{phone}
+                      ,email = #{email}
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delUser" parameterType="long">
         DELETE FROM user where id = #{id}
     </delete>
 
     <select id="getUserOne" resultType="hashMap">
-        SELECT * FROM user limit 1
+        SELECT * FROM user WHERE id = #{id}
     </select>
 
     <update id="putUser" parameterType="hashMap">

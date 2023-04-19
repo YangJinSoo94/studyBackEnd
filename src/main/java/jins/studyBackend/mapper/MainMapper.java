@@ -17,7 +17,7 @@ public interface MainMapper {
     public void delUser(long id);
 
     // 강의
-    HashMap getUserOne();
+    HashMap getUserOne(long id);
 
     int updateUser2(MemberVO memberVO);
 }

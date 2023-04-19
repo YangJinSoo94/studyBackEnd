@@ -15,5 +15,7 @@ public interface MainService {
 
     public void delUser(long id);
 
+    public HashMap getUserOne(long id);
+    
     public int updateUser2(long id, MemberVO memberVO);
 }

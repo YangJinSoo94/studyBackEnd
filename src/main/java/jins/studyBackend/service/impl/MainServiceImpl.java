@@ -6,6 +6,7 @@ import jins.studyBackend.vo.MemberVO;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLOutput;
 import java.util.HashMap;
 import java.util.List;
 
@@ -38,8 +39,9 @@ public class MainServiceImpl implements MainService {
         mainMapper.delUser(id);
     }
 
-    public HashMap getUserOne(){
-        return mainMapper.getUserOne();
+    public HashMap getUserOne(long id){
+        System.out.println("getUserOne");
+        return mainMapper.getUserOne(id);
     }
 
     public int updateUser2(long id, MemberVO memberVO){
