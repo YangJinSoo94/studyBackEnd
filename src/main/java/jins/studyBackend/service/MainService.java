@@ -18,4 +18,6 @@ public interface MainService {
     public HashMap getUserOne(long id);
     
     public int updateUser2(long id, MemberVO memberVO);
+
+    public String loginDo(MemberVO memberVO) throws Exception;
 }

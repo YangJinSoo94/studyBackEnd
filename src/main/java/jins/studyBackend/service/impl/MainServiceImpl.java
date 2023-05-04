@@ -1,5 +1,6 @@
 package jins.studyBackend.service.impl;
 
+import jins.studyBackend.aop.exception.NoUserException;
 import jins.studyBackend.mapper.MainMapper;
 import jins.studyBackend.service.MainService;
 import jins.studyBackend.vo.MemberVO;
@@ -47,5 +48,22 @@ public class MainServiceImpl implements MainService {
     public int updateUser2(long id, MemberVO memberVO){
         memberVO.setId(id);
         return mainMapper.updateUser2(memberVO);
+    }
+
+    public String loginDo(MemberVO memberVO) throws Exception {
+        HashMap user = mainMapper.getUserOne(memberVO.id);
+        String result = "";
+        if(user == null){
+            throw new NoUserException();
+        }
+
+        if(user.get("pw").equals(memberVO.pw)){
+            result = "success";
+            System.out.println("login success");
+        }else{
+            result = "fail";
+            System.out.println("login fail");
+        }
+        return result;
     }
 }

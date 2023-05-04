@@ -1,11 +1,14 @@
 package jins.studyBackend.controller.main;
 
+import com.google.gson.Gson;
 import jins.studyBackend.service.MainService;
 import jins.studyBackend.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 @RestController
 public class MainController {
@@ -64,6 +67,14 @@ public class MainController {
     public Object delUser(@PathVariable long id){
         mainService.delUser(id);
         return mainService.getUser();
+    }
+
+    @PostMapping(path = "/loginDo")
+    public HashMap loginDo(@RequestBody MemberVO memberVO) throws Exception{
+        HashMap<String,Object> returnMap = new HashMap<>();
+        returnMap.put("isLogin", mainService.loginDo(memberVO));
+        // string일 때 json으로 return : return new Gson().toJson(returnMap);
+        return returnMap;
     }
 
 }
