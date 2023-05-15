@@ -13,21 +13,30 @@ repositories {
 }
 
 dependencies {
-//	annotation 기준으로 동작 하도록 수정
+	//	annotation 기준으로 동작 하도록 수정
 	implementation 'org.projectlombok:lombok:1.18.24'
 	annotationProcessor 'org.projectlombok:lombok:1.18.24'
-//spring 기본 동작 구조 설정.
+
+	// spring 기본 동작 구조 설정.
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	implementation 'org.springframework.boot:spring-boot-starter-aop'
-//	mybatis 2.2.2버전이 최신이라 spring boot 2.x 기준으로 동작함. DB 연결 구조.
+
+	//	mybatis 2.2.2버전이 최신이라 spring boot 2.x 기준으로 동작함. DB 연결 구조.
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 	implementation 'org.mariadb.jdbc:mariadb-java-client:3.1.2'
 	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16'
 	testImplementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter-test:2.3.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	//gson
+
+	// gson
 	implementation 'com.google.code.gson:gson:2.10.1'
+
+	// JWT
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-gson:0.11.5'
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5'   //실행할 때만 필요한 라이브러리는 runtimeonly 이 두개가 없으면 실행할 때 api 오류
+
 }
 
 tasks.named('test') {

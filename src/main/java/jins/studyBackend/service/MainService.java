@@ -20,4 +20,6 @@ public interface MainService {
     public int updateUser2(long id, MemberVO memberVO);
 
     public String loginDo(MemberVO memberVO) throws Exception;
+
+    public boolean authToken(String token);
 }

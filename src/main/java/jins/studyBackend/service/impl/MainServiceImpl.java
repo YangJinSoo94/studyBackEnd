@@ -1,6 +1,7 @@
 package jins.studyBackend.service.impl;
 
 import jins.studyBackend.aop.exception.NoUserException;
+import jins.studyBackend.common.JWTSecret;
 import jins.studyBackend.mapper.MainMapper;
 import jins.studyBackend.service.MainService;
 import jins.studyBackend.vo.MemberVO;
@@ -15,6 +16,8 @@ import java.util.List;
 @Service
 public class MainServiceImpl implements MainService {
 
+    // private 선언 no
+    JWTSecret jwtSecret;
     private MainMapper mainMapper;
 
     @Override
@@ -58,12 +61,17 @@ public class MainServiceImpl implements MainService {
         }
 
         if(user.get("pw").equals(memberVO.pw)){
-            result = "success";
+            result = jwtSecret.makeJwtToken(memberVO);
             System.out.println("login success");
         }else{
             result = "fail";
             System.out.println("login fail");
         }
         return result;
+    }
+
+    public boolean authToken(String token){
+        jwtSecret.parseJwtToken(token);
+        return true;
     }
 }
