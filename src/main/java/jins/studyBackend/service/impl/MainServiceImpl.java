@@ -38,18 +38,18 @@ public class MainServiceImpl implements MainService {
     }
 
     @Override
-    public void delUser(long id){
+    public void delUser(String id){
         System.out.println("delUser");
         mainMapper.delUser(id);
     }
 
-    public HashMap getUserOne(long id){
+    public HashMap getUserOne(String id){
         System.out.println("getUserOne");
         return mainMapper.getUserOne(id);
     }
 
-    public int updateUser2(long id, MemberVO memberVO){
-        memberVO.setId(id);
+    public int updateUser2(String id, MemberVO memberVO){
+        memberVO.id = id;
         return mainMapper.updateUser2(memberVO);
     }
 

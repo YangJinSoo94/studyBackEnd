@@ -13,11 +13,11 @@ public interface MainService {
 
     public void updateUser(MemberVO memberVO);
 
-    public void delUser(long id);
+    public void delUser(String id);
 
-    public HashMap getUserOne(long id);
+    public HashMap getUserOne(String id);
     
-    public int updateUser2(long id, MemberVO memberVO);
+    public int updateUser2(String id, MemberVO memberVO);
 
     public String loginDo(MemberVO memberVO) throws Exception;
 

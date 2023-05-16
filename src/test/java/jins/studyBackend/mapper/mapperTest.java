@@ -28,12 +28,12 @@ public class mapperTest {
     void postTest() throws Exception{
         System.out.println("post user");
         MemberVO memberVO = new MemberVO();
-        memberVO.id = 50;
-        memberVO.setName("알리바바");
-        memberVO.setPw("12345");
-        memberVO.setAge(100);
-        memberVO.setPhone("1234");
-        memberVO.setEmail("www@www.www");
+        memberVO.id = "50";
+        memberVO.name = "알리바바";
+        memberVO.pw = "12345";
+        memberVO.age = 100;
+        memberVO.phone = "1234";
+        memberVO.email = "www@www.www";
 
         mainMapper.regiUser(memberVO);
     }
@@ -42,7 +42,7 @@ public class mapperTest {
     void putTest() throws Exception{
         System.out.println("put user");
         MemberVO memberVO = new MemberVO();
-        memberVO.id = 10;
+        memberVO.id = "10";
         memberVO.age = 10;
 
         mainMapper.updateUser(memberVO);
@@ -52,7 +52,7 @@ public class mapperTest {
     void delTest() throws Exception{
         System.out.println("del user");
         MemberVO memberVO = new MemberVO();
-        long id = 2;
+        String id = "2";
         mainMapper.delUser(id);
     }
 }

@@ -14,10 +14,10 @@ public interface MainMapper {
 
     public void updateUser(MemberVO memberVO);
 
-    public void delUser(long id);
+    public void delUser(String id);
 
     // 강의
-    HashMap getUserOne(long id);
+    HashMap getUserOne(String id);
 
     int updateUser2(MemberVO memberVO);
 }

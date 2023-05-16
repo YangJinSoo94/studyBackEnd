@@ -48,7 +48,7 @@ public class MainController {
     }
 
     @PutMapping("/updateUser2/{id}")
-    public Object updateUser2(@PathVariable long id, @RequestBody MemberVO memberVO){
+    public Object updateUser2(@PathVariable String id, @RequestBody MemberVO memberVO){
         try{
             mainService.updateUser2(id, memberVO);
         }catch (Exception e){
@@ -58,13 +58,13 @@ public class MainController {
     }
 
     @GetMapping("/getUserOne/{id}")
-    public Object getUserOne(@PathVariable long id) {
+    public Object getUserOne(@PathVariable String id) {
         System.out.println("getUserOne do");
         return mainService.getUserOne(id);
     }
 
     @DeleteMapping("/delUser/{id}")
-    public Object delUser(@PathVariable long id){
+    public Object delUser(@PathVariable String id){
         mainService.delUser(id);
         return mainService.getUser();
     }
