@@ -78,10 +78,8 @@ public class MainController {
     }
 
     @PostMapping(path = "/authToken")
-    public HashMap authToken(@RequestBody String token) throws Exception{
+    public Object authToken(@RequestBody String token) throws Exception{
         HashMap<String, Object> returnMap = new HashMap<>();
-        returnMap.put("isToken", mainService.authToken(token));
-        return returnMap;
+        return mainService.authToken(token);
     }
-
 }
