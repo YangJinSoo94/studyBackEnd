@@ -1,6 +1,9 @@
 package jins.studyBackend.controller.main;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import jins.studyBackend.service.MainService;
 import jins.studyBackend.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,11 +73,11 @@ public class MainController {
     }
 
     @PostMapping(path = "/loginDo")
-    public HashMap loginDo(@RequestBody MemberVO memberVO) throws Exception{
+    public Object loginDo(@RequestBody MemberVO memberVO) throws Exception{
         HashMap<String,Object> returnMap = new HashMap<>();
         returnMap.put("isLogin", mainService.loginDo(memberVO));
         // string일 때 json으로 return : return new Gson().toJson(returnMap);
-        return returnMap;
+        return new Gson().toJson(returnMap);
     }
 
     @PostMapping(path = "/authToken")
