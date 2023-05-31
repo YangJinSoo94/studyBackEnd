@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import io.swagger.annotations.ApiOperation;
 import jins.studyBackend.service.MainService;
 import jins.studyBackend.vo.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class MainController {
     @Autowired
     private MainService mainService;
 
+    //2023.05.31 Swagger에 설명 넣는 어노테이션
+    @ApiOperation(value="유저정보", notes = "유저정보 api")
     @GetMapping("/getUser")
     public Object getUser() {
         System.out.println("getUser do");
